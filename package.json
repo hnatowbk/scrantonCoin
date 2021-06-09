@@ -1,0 +1,15 @@
+{
+  "name": "scrantonCoin",
+  "version": "1.0.0",
+  "description": "Crypto for fans of the Office",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Bradley K. Hnatow",
+  "license": "ISC",
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  }
+}
