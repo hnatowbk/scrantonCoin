@@ -1,16 +1,14 @@
-#include <cstdint>
 #include <iostream>
+#include <cstdint>
+#include <string>
 
 using namespace std;
 
 class Block{
 public:
     string sPrevHash;
-
     Block(uint32_t nIndexIn, const string &sDataIn);
-
     string GetHash();
-
     void MineBlock (uint32_t nDifficulty);
 
 private:
@@ -22,4 +20,3 @@ private:
 
     string _CalculateHash() const;
 };
-
