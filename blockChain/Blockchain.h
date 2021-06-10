@@ -15,6 +15,6 @@ private:
     uint32_t _nDifficulty;
     vector<Block> _vChain;
 
-    Block _GetLastBlcok() const;
+    Block _GetLastBlock() const;
 };
 
