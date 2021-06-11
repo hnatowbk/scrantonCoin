@@ -12,5 +12,5 @@ int main() {
     cout << "Mining block 3..." << endl;
     bChain.AddBlock(Block(3, "Block 3 Data"));
 
-    return 0;
+    cout << endl;
 }
