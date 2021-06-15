@@ -1,4 +1,5 @@
-#include "Blockchain.h"
+//#include "Blockchain.h"
+#include "Blockchain.cpp"
 
 int main() {
     Blockchain bChain = Blockchain();
