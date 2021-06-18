@@ -54,14 +54,3 @@ class block():
 
     def returnDate(self):
         return self.timeOfCreation
-
-
-testBlock = block("62f8d31406ce34366a8d5112fba87826c713ec2fb43419ed5ac9ccc45cd99780",
-                  107, "BRADLEY BOUGHT SCRANTONCOIN")
-print("")
-print(testBlock.returnDate())
-testBlock.calculateHash()
-print("")
-print(testBlock.returnHash())
-print("")
-print(testBlock.returnTrans())
