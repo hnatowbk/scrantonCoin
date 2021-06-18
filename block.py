@@ -15,13 +15,14 @@ class block():
         self.prevHash = prevHash
         self.blockIndex = blockIndex
         self.data = data
-        self.blockHash = block.calculateHash(self)
+        self.blockHash = ""
+        block.calculateHash(self)
         self.proofOfWork = None
 
-# calculateTime() 
+# calculateTime()
 # Calculates the time that the newly created block was created
-# Sets the date of the block in a (Year, Day Of Week, Month, 
-#                                  Date, Hour, Minute, Second) Format
+# Sets the date of the block in a (Year, Day Of Week, Month, Date,
+#                                  Hour, Minute, Second) format.
 #
 # @returns setDate
 
@@ -32,7 +33,7 @@ class block():
         return setDate
 
 # calculateHash(self)
-# Generates a hash for the newly created block by using 
+# Generates a hash for the newly created block by using
 # variables like timeOfCreation, blockIndex, and the data.
 # Hash is generated using sha256
 #
@@ -42,15 +43,14 @@ class block():
         hashCode = hashlib.sha256(
             (str(self.timeOfCreation) + str(self.blockIndex) + self.data).encode('utf-8')).hexdigest()
         self.blockHash = hashCode
-        return
 
-# Simple return Methods used for testing
 
-    def returnHash(self):
-        return self.blockHash
+testBlock = block("jdfsjnfksndkfjs", 123, "HEY")
+print()
+print(testBlock.timeOfCreation)
+print(testBlock.blockHash)
 
-    def returnData(self):
-        return self.data
 
-    def returnDate(self):
-        return self.timeOfCreation
+class blockChain():
+    def __init__(self):
+        self.chain = []
