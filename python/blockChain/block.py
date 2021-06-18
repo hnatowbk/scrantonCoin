@@ -4,12 +4,12 @@ import hashlib
 
 class block():
 
-    def __init__(self, prevHash, blockIndex, data):
-        self.prevHash = prevHash
+    def __init__(self, prevHash, blockIndex, transaction):
         self.timeOfCreation = block.calculateTime()
+        self.prevHash = prevHash
         self.blockIndex = blockIndex
+        self.transaction = transaction
         self.blockHash = block.calculateHash(self)
-        self.data = data
         self.proofOfWork = None
 
     @staticmethod
@@ -23,16 +23,23 @@ class block():
 
     def calculateHash(self):
         hashCode = hashlib.sha256(
-            str(self.timeOfCreation).encode('utf-8')).hexdigest()
+            (str(self.timeOfCreation) + str(self.blockIndex) + self.transaction).encode('utf-8')).hexdigest()
         self.blockHash = hashCode
         return
 
     def returnHash(self):
         return self.blockHash
 
+    def returnTrans(self):
+        return self.transaction
 
-testBlock = block(0, 1)
+
+testBlock = block("62f8d31406ce34366a8d5112fba87826c713ec2fb43419ed5ac9ccc45cd99780",
+                  107, "BRADLEY BOUGHT SCRANTONCOIN")
+print("")
 print(testBlock.returnDate())
 testBlock.calculateHash()
 print("")
 print(testBlock.returnHash())
+print("")
+print(testBlock.returnTrans())
