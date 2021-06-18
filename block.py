@@ -1,5 +1,6 @@
 import datetime
 import hashlib
+import array
 
 """
 
@@ -52,5 +53,26 @@ print(testBlock.blockHash)
 
 
 class blockChain():
+
     def __init__(self):
         self.chain = []
+        genesis = block("0000", 0, "Genesis Block")
+        self.chain.append(genesis)
+    
+    def printBlockChain(self):
+        print(self.chain)
+
+    def getLatestHash(self):
+        return self.chain[len(self.chain)-1].blockHash
+
+    def addBlock(self, data):
+        newBlock = block(
+            blockChain.getLatestHash(self), 
+            self.chain.__len__, 
+            data
+        )
+
+first = blockChain()
+first.printBlockChain()
+first.addBlock("FUCK")
+first.printBlockChain()
