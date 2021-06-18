@@ -5,7 +5,6 @@ class Block
 
 {
 private:
-    index;
 
 public:
     Block();
