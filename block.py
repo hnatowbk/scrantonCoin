@@ -69,16 +69,32 @@ class blockChain():
     def addBlock(self, data):
         newBlock = block(blockChain.getLatestHash(self), len(self.chain), data)
         self.chain.append(newBlock)
+        self.testChainIntegrity()
 
-    # ---To do--- 
+    # ---To do---
     # Loop through the array to make sure the Hash of  x-1
     # equals the prevHash of x
     def testChainIntegrity(self):
-        for x in range(len(self.chain)):
-            print()
+        for x in range(len(self.chain)-1):
+            if self.chain[x].blockHash == self.chain[x+1].prevHash or self.chain[x].prevHash == "0000":
+                self.valid = True
+            elif self.chain[x].blockHash != self.chain[x+1].prevHash:
+                self.valid = False
+                break
+        if self.valid == True:
+            print("Accepted: Block Chain is Valid.\n")
+        elif self.valid == False:
+            print("Error: Block Chain is invalid.\n")
+        else: 
+            print("Error: Something went wrong.\n")
+            
 
 testBlockChain = blockChain()
+testBlockChain.printBlockChain()
 testBlockChain.addBlock("Second Block")
+testBlockChain.printBlockChain()
 testBlockChain.addBlock("Third Block")
+testBlockChain.printBlockChain()
 testBlockChain.addBlock("Forth Block")
 testBlockChain.printBlockChain()
+testBlockChain.testChainIntegrity()
