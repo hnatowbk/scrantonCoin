@@ -25,6 +25,7 @@ class block():
         self.proofOfWork = None
 
     # calculateTime()
+    #
     # Calculates the time that the newly created block was created
     # Sets the date of the block in a (Year, Day Of Week, Month, Date,
     #                                  Hour, Minute, Second) format.
@@ -85,6 +86,7 @@ class blockChain():
         return str(self.chain[len(self.chain)-1].blockHash)
 
     # addBlock(self, data)
+    #
     # Adds a new block to the chain array
     #
     # @reutrns void
@@ -95,6 +97,7 @@ class blockChain():
         self.testChainIntegrity()
 
     # testChainIntegrity(self)
+    #
     # Checks the current self.chain[x].hash and compares it to 
     # next block in the chain's prevHash
     #
