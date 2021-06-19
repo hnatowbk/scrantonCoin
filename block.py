@@ -52,11 +52,12 @@ class blockChain():
         self.chain = []
         genesis = block("0000", 0, "Genesis Block")
         self.chain.append(genesis)
+        self.valid = True
 
     def printBlockChain(self):
         for x in range(len(self.chain)):
             print(
-                "Data: "+self.chain[x].data
+                "Data: " + self.chain[x].data
                 + "\nTime: " + self.chain[x].timeOfCreation
                 + "\nHash: " + self.chain[x].blockHash
                 + "\nPrevHash: " + self.chain[x].prevHash + "\n"
@@ -69,6 +70,12 @@ class blockChain():
         newBlock = block(blockChain.getLatestHash(self), len(self.chain), data)
         self.chain.append(newBlock)
 
+    # ---To do--- 
+    # Loop through the array to make sure the Hash of  x-1
+    # equals the prevHash of x
+    def testChainIntegrity(self):
+        for x in range(len(self.chain)):
+            print()
 
 testBlockChain = blockChain()
 testBlockChain.addBlock("Second Block")
