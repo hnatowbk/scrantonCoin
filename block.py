@@ -3,8 +3,12 @@ import hashlib
 import array
 
 """
+Title: Python Block Chain
 
 Author: Bradley K. Hnatow
+
+Description: A simple block chain program devloped in python later
+to be used and updated for more complex projects.
 
 """
 
@@ -76,7 +80,7 @@ class blockChain():
     # equals the prevHash of x
     def testChainIntegrity(self):
         for x in range(len(self.chain)-1):
-            if self.chain[x].blockHash == self.chain[x+1].prevHash or self.chain[x].prevHash == "0000":
+            if self.chain[x].blockHash == self.chain[x+1].prevHash:
                 self.valid = True
             elif self.chain[x].blockHash != self.chain[x+1].prevHash:
                 self.valid = False
@@ -90,6 +94,7 @@ class blockChain():
             
 
 testBlockChain = blockChain()
+'''
 testBlockChain.printBlockChain()
 testBlockChain.addBlock("Second Block")
 testBlockChain.printBlockChain()
@@ -98,3 +103,4 @@ testBlockChain.printBlockChain()
 testBlockChain.addBlock("Forth Block")
 testBlockChain.printBlockChain()
 testBlockChain.testChainIntegrity()
+'''
