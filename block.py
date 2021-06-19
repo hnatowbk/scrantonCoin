@@ -63,17 +63,15 @@ class blockChain():
             )
 
     def getLatestHash(self):
-        return self.chain[len(self.chain)-1].blockHash
+        return str(self.chain[len(self.chain)-1].blockHash)
 
     def addBlock(self, data):
         newBlock = block(blockChain.getLatestHash(self), len(self.chain), data)
         self.chain.append(newBlock)
-        return
 
 
-first = blockChain()
-# first.printBlockChain()
-#print(first.getLatestHash())
-first.addBlock("Second Block")
-# first.printBlockChain()
-print(first)
+testBlockChain = blockChain()
+testBlockChain.addBlock("Second Block")
+testBlockChain.addBlock("Third Block")
+testBlockChain.addBlock("Forth Block")
+testBlockChain.printBlockChain()
