@@ -46,33 +46,34 @@ class block():
         self.blockHash = hashCode
 
 
-testBlock = block("jdfsjnfksndkfjs", 123, "HEY")
-print()
-print(testBlock.timeOfCreation)
-print(testBlock.blockHash)
-
-
 class blockChain():
 
     def __init__(self):
         self.chain = []
         genesis = block("0000", 0, "Genesis Block")
         self.chain.append(genesis)
-    
+
     def printBlockChain(self):
-        print(self.chain)
+        for x in range(len(self.chain)):
+            print(
+                "Data: "+self.chain[x].data
+                + "\nTime: " + self.chain[x].timeOfCreation
+                + "\nHash: " + self.chain[x].blockHash
+                + "\nPrevHash: " + self.chain[x].prevHash + "\n"
+            )
 
     def getLatestHash(self):
         return self.chain[len(self.chain)-1].blockHash
 
     def addBlock(self, data):
-        newBlock = block(
-            blockChain.getLatestHash(self), 
-            self.chain.__len__, 
-            data
-        )
+        newBlock = block(blockChain.getLatestHash(self), len(self.chain), data)
+        self.chain.append(newBlock)
+        return
+
 
 first = blockChain()
-first.printBlockChain()
-first.addBlock("FUCK")
-first.printBlockChain()
+# first.printBlockChain()
+#print(first.getLatestHash())
+first.addBlock("Second Block")
+# first.printBlockChain()
+print(first)
