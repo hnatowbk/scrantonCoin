@@ -97,7 +97,7 @@ class blockChain():
     def addBlock(self, data, proof):
         newBlock = block(blockChain.getLatestHash(self), len(self.chain), data)
         self.chain.append(newBlock)
-        self.testChainIntegrity()
+        self.proof = self.testChainIntegrity()
 
     # testChainIntegrity(self)
     #      Checks the current self.chain[x].hash and compares it to 
